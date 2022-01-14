@@ -11,5 +11,5 @@ export class CreateJokeDto {
     modified?: Date;
 
     isActive: boolean;
-    category?: string;
+    categoryId?: number;
 }

@@ -28,4 +28,16 @@ export class CategoriesService {
         return category;
     }
 
+    async handleGetCategoryByIdRequest(categoryId: number) : Promise<Category> {
+        const category = this.categoryRepository.findOne({where: {id: categoryId}});
+        return category;
+    }
+
+    async handleDeleteCategoryRequest(categoryId : number) : Promise<Category> {
+        const category = await this.categoryRepository.findOne({where: {id : categoryId}})
+
+        if (category) await this.categoryRepository.delete(categoryId);
+        
+        return category;
+    }
 }

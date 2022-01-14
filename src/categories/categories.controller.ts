@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller} from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
 import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
@@ -17,5 +17,15 @@ export class CategoriesController {
     @MessagePattern({cmd: 'get_categories_request'})
     async getCategories() : Promise<Category[]>{
         return await this.categoriesService.handleGetCategoriesRequest();
+    }
+
+    @MessagePattern({cmd: 'get_categorybyid_request'})
+    async getCategoryById( id : number ) : Promise<Category>{
+        return await this.categoriesService.handleGetCategoryByIdRequest(id);
+    }
+
+    @MessagePattern({cmd: 'delete_categorybyid_request'})
+    async deleteCategoryById( id : number ) : Promise<Category>{
+        return await this.categoriesService.handleDeleteCategoryRequest(id);
     }
 }

@@ -1,6 +1,6 @@
 import { Length } from "class-validator";
 import { Category } from "src/categories/entities/category.entity";
-import {Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import {Column, CreateDateColumn, Entity, JoinTable, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Joke {
@@ -30,5 +30,6 @@ export class Joke {
     isActive: boolean;
 
     @ManyToOne(()=> Category, (category) => category.jokes)
+    @JoinTable()
     category: Category;
 }

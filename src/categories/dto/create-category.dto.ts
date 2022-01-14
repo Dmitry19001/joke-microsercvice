@@ -1,3 +1,5 @@
+import { Joke } from "src/jokes/entities/joke.entity";
+
 export class CreateCategoryDto {
     id?: number;
 
@@ -7,4 +9,5 @@ export class CreateCategoryDto {
     created?: Date;
     modified?: Date;
     isActive?: boolean;
+    jokes?: Joke[];
 }

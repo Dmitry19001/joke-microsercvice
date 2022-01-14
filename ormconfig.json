@@ -1,0 +1,19 @@
+{
+    "type": "mysql",
+    "host": "student-joke-microservice-database",
+    "port": "3306",
+    "username": "admin",
+    "password": "Koodaus1",
+    "database": "joke_microservice_db",
+
+    "entities": [
+        "dist/**/**/*.entity{.ts,.js}"
+    ],
+    "synchronize": true,
+    "migrations": [
+        "dist/database/migrations/*.js"
+    ],
+    "cli": {
+        "migrationsDir": "database/migrations"
+    }
+}
